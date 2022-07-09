@@ -20,6 +20,14 @@ public class LinkDto {
         this.visits = visits;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getTargetUrl() {
+        return targetUrl;
+    }
+
     public String getShortenedLink() {
         return ServletUriComponentsBuilder
                 .fromCurrentContextPath()
