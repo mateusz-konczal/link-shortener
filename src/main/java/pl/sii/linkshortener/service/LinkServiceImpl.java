@@ -1,6 +1,5 @@
 package pl.sii.linkshortener.service;
 
-import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.stereotype.Service;
 import pl.sii.linkshortener.dto.LinkDto;
 import pl.sii.linkshortener.exception.LinkAlreadyExistException;

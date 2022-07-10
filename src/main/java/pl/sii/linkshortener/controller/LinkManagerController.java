@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sii.linkshortener.dto.CreateLinkDto;
 import pl.sii.linkshortener.dto.LinkDto;
 import pl.sii.linkshortener.service.LinkService;
 
 @RestController
 @RequestMapping("/links")
-public class LinkManagerController {
+class LinkManagerController {
 
     private final LinkService linkService;
 

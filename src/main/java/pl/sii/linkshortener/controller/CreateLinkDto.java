@@ -1,8 +1,10 @@
-package pl.sii.linkshortener.dto;
+package pl.sii.linkshortener.controller;
+
+import pl.sii.linkshortener.dto.LinkDto;
 
 import java.time.LocalDate;
 
-public class CreateLinkDto {
+class CreateLinkDto {
     private final String id;
     private final String email;
     private final String targetUrl;

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/s")
-public class RedirectController {
+class RedirectController {
 
     private final LinkService linkService;
 
