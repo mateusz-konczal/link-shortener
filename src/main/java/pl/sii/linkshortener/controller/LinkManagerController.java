@@ -1,5 +1,6 @@
 package pl.sii.linkshortener.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,14 +12,11 @@ import pl.sii.linkshortener.dto.LinkDto;
 import pl.sii.linkshortener.service.LinkService;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/links")
 class LinkManagerController {
 
     private final LinkService linkService;
-
-    public LinkManagerController(LinkService linkService) {
-        this.linkService = linkService;
-    }
 
     @PostMapping
     @ResponseBody
