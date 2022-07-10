@@ -1,9 +1,13 @@
 package pl.sii.linkshortener.dto;
 
+import lombok.Builder;
+import lombok.Getter;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDate;
 
+@Getter
+@Builder
 public class LinkDto {
     String id;
     String email;
@@ -18,14 +22,6 @@ public class LinkDto {
         this.targetUrl = targetUrl;
         this.expirationDate = expirationDate;
         this.visits = visits;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getTargetUrl() {
-        return targetUrl;
     }
 
     public String getShortenedLink() {

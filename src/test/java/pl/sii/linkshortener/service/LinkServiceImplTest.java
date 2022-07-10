@@ -9,7 +9,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import pl.sii.linkshortener.dto.LinkDto;
 import pl.sii.linkshortener.exception.LinkAlreadyExistException;
 import pl.sii.linkshortener.exception.LinkNotFoundException;
-import pl.sii.linkshortener.repository.Repository;
+import pl.sii.linkshortener.repository.LinkEntity;
+import pl.sii.linkshortener.repository.LinkRepository;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -20,7 +21,7 @@ import static org.mockito.BDDMockito.given;
 class LinkServiceImplTest {
 
     @Mock
-    Repository repository;
+    LinkRepository repository;
 
     @InjectMocks
     LinkServiceImpl linkService;
@@ -39,7 +40,7 @@ class LinkServiceImplTest {
 
         // Given
         LinkDto linkDto = new LinkDto("damian", "test@gmail.com", "google.com", LocalDate.now(), 0);
-        given(repository.findById("damian")).willReturn(Optional.of(linkDto));
+        given(repository.findById("damian")).willReturn(Optional.of(LinkEntity.fromDto(linkDto)));
         //Then
         Assertions.assertThrows(LinkAlreadyExistException.class,
                 () -> linkService.createLink(new LinkDto("damian", "t@gmail.com", "amazon.com", LocalDate.now(), 0)));
@@ -53,6 +54,13 @@ class LinkServiceImplTest {
         // Then
         Assertions.assertThrows(LinkNotFoundException.class,
                 () -> linkService.getLink(id));
+    }
+
+    @Test
+    void shouldIncrementVisitsNumberOnEntry() {
+        // Given
+        String id = "test";
+
     }
 
 }
