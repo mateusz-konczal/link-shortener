@@ -1,12 +1,11 @@
-package pl.sii.linkshortener.service;
+package pl.sii.linkshortener.link;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pl.sii.linkshortener.dto.LinkDto;
-import pl.sii.linkshortener.exception.LinkAlreadyExistException;
-import pl.sii.linkshortener.exception.LinkNotFoundException;
-import pl.sii.linkshortener.repository.LinkEntity;
-import pl.sii.linkshortener.repository.LinkRepository;
+import pl.sii.linkshortener.link.api.LinkDto;
+import pl.sii.linkshortener.link.api.exception.LinkAlreadyExistException;
+import pl.sii.linkshortener.link.api.exception.LinkNotFoundException;
+import pl.sii.linkshortener.link.api.LinkService;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;

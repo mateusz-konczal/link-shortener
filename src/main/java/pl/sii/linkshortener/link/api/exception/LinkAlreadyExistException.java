@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.exception;
+package pl.sii.linkshortener.link.api.exception;
 
 public class LinkAlreadyExistException extends RuntimeException {
 

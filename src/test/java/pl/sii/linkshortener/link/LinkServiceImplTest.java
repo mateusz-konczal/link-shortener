@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.service;
+package pl.sii.linkshortener.link;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -6,11 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import pl.sii.linkshortener.dto.LinkDto;
-import pl.sii.linkshortener.exception.LinkAlreadyExistException;
-import pl.sii.linkshortener.exception.LinkNotFoundException;
-import pl.sii.linkshortener.repository.LinkEntity;
-import pl.sii.linkshortener.repository.LinkRepository;
+import pl.sii.linkshortener.link.api.LinkDto;
+import pl.sii.linkshortener.link.api.exception.LinkAlreadyExistException;
+import pl.sii.linkshortener.link.api.exception.LinkNotFoundException;
 
 import java.time.LocalDate;
 import java.util.List;

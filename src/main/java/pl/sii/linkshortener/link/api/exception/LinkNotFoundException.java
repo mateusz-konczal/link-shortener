@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.exception;
+package pl.sii.linkshortener.link.api.exception;
 
 public class LinkNotFoundException extends RuntimeException {
     public LinkNotFoundException(final String url) {

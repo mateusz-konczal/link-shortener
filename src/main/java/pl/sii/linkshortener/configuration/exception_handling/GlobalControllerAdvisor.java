@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.controller;
+package pl.sii.linkshortener.configuration.exception_handling;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;

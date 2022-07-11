@@ -1,11 +1,11 @@
-package pl.sii.linkshortener.repository;
+package pl.sii.linkshortener.link;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.sii.linkshortener.dto.LinkDto;
+import pl.sii.linkshortener.link.api.LinkDto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LinkEntity {
+class LinkEntity {
 
     @Id
     private String id;
@@ -31,7 +31,7 @@ public class LinkEntity {
                 linkDto.expirationDate(), linkDto.visits());
     }
 
-    public LinkDto toDto() {
+     LinkDto toDto() {
         return LinkDto
                 .builder()
                 .id(id)

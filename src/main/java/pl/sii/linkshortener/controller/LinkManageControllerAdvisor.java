@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
-import pl.sii.linkshortener.exception.LinkAlreadyExistException;
-import pl.sii.linkshortener.exception.LinkNotFoundException;
+import pl.sii.linkshortener.configuration.exception_handling.ExceptionResponse;
+import pl.sii.linkshortener.link.api.exception.LinkAlreadyExistException;
+import pl.sii.linkshortener.link.api.exception.LinkNotFoundException;
 
 @ControllerAdvice
 class LinkManageControllerAdvisor {

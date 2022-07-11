@@ -1,7 +1,7 @@
 package pl.sii.linkshortener.controller;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import pl.sii.linkshortener.dto.LinkDto;
+import pl.sii.linkshortener.link.api.LinkDto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Future;

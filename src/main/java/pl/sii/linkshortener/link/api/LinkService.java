@@ -1,6 +1,4 @@
-package pl.sii.linkshortener.service;
-
-import pl.sii.linkshortener.dto.LinkDto;
+package pl.sii.linkshortener.link.api;
 
 import java.time.LocalDate;
 

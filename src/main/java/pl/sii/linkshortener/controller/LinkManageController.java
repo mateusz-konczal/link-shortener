@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sii.linkshortener.dto.LinkDto;
-import pl.sii.linkshortener.service.LinkService;
+import pl.sii.linkshortener.link.api.LinkDto;
+import pl.sii.linkshortener.link.api.LinkService;
 
 import javax.validation.Valid;
 

@@ -1,4 +1,4 @@
-package pl.sii.linkshortener.dto;
+package pl.sii.linkshortener.link.api;
 
 import lombok.Builder;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
