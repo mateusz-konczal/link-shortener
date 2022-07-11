@@ -1,6 +1,6 @@
-package pl.sii.linkshortener.service;
+package pl.sii.linkshortener.link.api;
 
-import pl.sii.linkshortener.dto.LinkDto;
+import java.time.LocalDate;
 
 public interface LinkService {
     LinkDto createLink(LinkDto linkDto);
@@ -8,4 +8,6 @@ public interface LinkService {
     String getLink(String id);
 
     LinkDto getLinkDto(String id);
+
+    void removeExpiredLinks(LocalDate date);
 }

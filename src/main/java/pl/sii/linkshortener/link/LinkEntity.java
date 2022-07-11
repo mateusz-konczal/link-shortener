@@ -1,21 +1,23 @@
-package pl.sii.linkshortener.repository;
+package pl.sii.linkshortener.link;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.sii.linkshortener.dto.LinkDto;
+import pl.sii.linkshortener.link.api.LinkDto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LinkEntity {
+@Builder
+class LinkEntity {
 
     @Id
     private String id;
@@ -25,11 +27,11 @@ public class LinkEntity {
     private int visits;
 
     public static LinkEntity fromDto(LinkDto linkDto) {
-        return new LinkEntity(linkDto.getId(), linkDto.getEmail(), linkDto.getTargetUrl(),
-                linkDto.getExpirationDate(), linkDto.getVisits());
+        return new LinkEntity(linkDto.id(), linkDto.email(), linkDto.targetUrl(),
+                linkDto.expirationDate(), linkDto.visits());
     }
 
-    public LinkDto toDto() {
+     LinkDto toDto() {
         return LinkDto
                 .builder()
                 .id(id)
