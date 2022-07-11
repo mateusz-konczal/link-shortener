@@ -1,5 +1,6 @@
 package pl.sii.linkshortener.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.sii.linkshortener.dto.LinkDto;
 import pl.sii.linkshortener.exception.LinkAlreadyExistException;
@@ -8,8 +9,10 @@ import pl.sii.linkshortener.repository.LinkEntity;
 import pl.sii.linkshortener.repository.LinkRepository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 
 @Service
+@Slf4j
 class LinkServiceImpl implements LinkService {
 
     //    private final Map<String, LinkDto> dtoMap = new HashMap<>();
@@ -22,8 +25,8 @@ class LinkServiceImpl implements LinkService {
 
     @Override
     public LinkDto createLink(LinkDto linkDto) {
-        if (repository.findById(linkDto.getId()).isPresent()) {
-            throw new LinkAlreadyExistException(linkDto.getId());
+        if (repository.findById(linkDto.id()).isPresent()) {
+            throw new LinkAlreadyExistException(linkDto.id());
         }
         repository.save(LinkEntity.fromDto(linkDto));
 
@@ -52,5 +55,14 @@ class LinkServiceImpl implements LinkService {
     @Override
     public LinkDto getLinkDto(String id) {
         return repository.findById(id).orElseThrow(() -> new LinkNotFoundException(id)).toDto();
+    }
+
+    @Override
+    @Transactional
+    public void removeExpiredLinks(LocalDate date) {
+        var expiredLinks = repository.findLinksBeforeDate(date);
+        repository.deleteAll(expiredLinks);
+        expiredLinks.forEach(linkEntity -> log.info("deleted entity with id " + linkEntity.getId()));
+//        log.info((long) expiredLinks.size() + " items with time expiration before " + date + " has been deleted.");
     }
 }

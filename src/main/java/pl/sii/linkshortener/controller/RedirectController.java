@@ -18,8 +18,7 @@ class RedirectController {
     private final LinkService linkService;
 
     @GetMapping("/{id}")
-    public void redirectLink(
-            @PathVariable String id, HttpServletResponse httpServletResponse) throws IOException {
+    public void redirectLink(@PathVariable String id, HttpServletResponse httpServletResponse) throws IOException {
         httpServletResponse.sendRedirect(linkService.getLink(id));
     }
 }

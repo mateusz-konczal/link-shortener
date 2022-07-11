@@ -1,6 +1,7 @@
 package pl.sii.linkshortener.repository;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,10 +12,11 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class LinkEntity {
 
     @Id
@@ -25,8 +27,8 @@ public class LinkEntity {
     private int visits;
 
     public static LinkEntity fromDto(LinkDto linkDto) {
-        return new LinkEntity(linkDto.getId(), linkDto.getEmail(), linkDto.getTargetUrl(),
-                linkDto.getExpirationDate(), linkDto.getVisits());
+        return new LinkEntity(linkDto.id(), linkDto.email(), linkDto.targetUrl(),
+                linkDto.expirationDate(), linkDto.visits());
     }
 
     public LinkDto toDto() {
